@@ -1,9 +1,27 @@
 import React from 'react'
 import styled from 'styled-components';
+import { db }  from '../firebase';
+import { useCollection } from 'react-firebase-hooks/firestore';
 
-function SidebarOption({ Icon, title }) {
+function SidebarOption({ Icon, title, addChannelOption }) {
+  const addChannel = () => {
+    const channelName = prompt('Please enter the channel name')
+
+    if (channelName) {
+      db.collection('rooms').add({
+        name: channelName,
+      })
+    }
+  };
+
+  const selectChannel = () => {
+
+  };
+
   return (
-   <SidebarOptionContainer>
+   <SidebarOptionContainer
+    onClick={addChannelOption ? addChannel : selectChannel }
+   >
      {Icon && <Icon fontSize='small' style={{ padding: 10}}/>}
      {Icon ? (
       <h3>{title}</h3>
@@ -39,4 +57,7 @@ cursor: pointer;
 }
 `;
 
-const SidebarOptionChannel = styled.div``;
+const SidebarOptionChannel = styled.h3`
+padding: 10px 0;
+font-weight: 300;
+`;
