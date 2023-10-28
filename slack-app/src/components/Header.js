@@ -57,12 +57,17 @@ color: gray;
 border: 1px gray solid;
 
 > input {
+  flex: .99;
   background-color: transparent;
-  width: 90vh;
+  width: 80vh;
   border: none;
   text-align: center;
   outline: 0;
   color: white;
+}
+
+> .MuiSvgIcon-root {
+  padding-top: 5px;
 }
 `;
 
