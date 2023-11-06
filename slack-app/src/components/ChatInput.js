@@ -7,7 +7,6 @@ import { db } from '../firebase';
 function ChatInput({channelName, channelId}) {
     const [input, setInput] = useState('');
 
-
     const sendMessage = (e) => {
     e.preventDefault();
 
