@@ -16,7 +16,7 @@ function ChatInput({channelName, channelId}) {
 
     db.collection('rooms').doc(channelId).collection('messages').add({
         message: input,
-        timestamp:firebase.firestore.FieldValue.serverTimestamp(),
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         user: 'Elaine San Luis',
         userImage: '',
     });

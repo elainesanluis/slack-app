@@ -31,4 +31,12 @@ padding: 20px;
 }
 `;
 
-const MessageInfo = styled.div``;
+const MessageInfo = styled.div`
+padding-left:10px;
+
+>h4 >span {
+    color: gray;
+    font-weight: 300;
+    margin-left:4px;
+    font-size: 10px;
+}`;
