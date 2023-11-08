@@ -1,5 +1,5 @@
 import { InfoOutlined } from '@mui/icons-material';
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { selectRoomId } from '../features/appSlice';
@@ -9,11 +9,12 @@ import { db } from '../firebase';
 import Message from './Message';
 
 function Chat () {
+    const chatRef = useRef(null);
     const roomId = useSelector(selectRoomId);
     const [roomDetails] = useDocument(
         roomId && db.collection('rooms').doc(roomId)
     );
-    const [roomMessages] = useCollection(
+    const [roomMessages, loading] = useCollection(
         roomId && 
         db
         .collection('rooms')
@@ -23,6 +24,12 @@ function Chat () {
     );
     console.log(roomDetails?.data());
     console.log(roomMessages);
+
+    useEffect(() => {
+        chatRef?.current?.scrollIntoView({
+            behavior:'smooth',
+        });
+    }, [roomId, loading]);
 
     return <ChatContainer>
         <Header>
@@ -48,7 +55,9 @@ function Chat () {
                      />
                      )
             })}
+            <ChatBottom ref={chatRef}/>
         </ChatMessages>
+        
         <ChatInput channelName={roomDetails?.data().name} channelId={roomId}></ChatInput>
     </ChatContainer>;
 }
@@ -100,4 +109,6 @@ const HeaderRight = styled.div`
 `;
 
 const ChatMessages = styled.div``;
+
+const ChatBottom = styled.div``;
 
