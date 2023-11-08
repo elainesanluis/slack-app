@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import firebase from 'firebase/compat/app';
 import { db } from '../firebase';
 
-function ChatInput({channelName, channelId}) {
+function ChatInput({channelName, channelId, chatRef}) {
     const [input, setInput] = useState('');
 
     const sendMessage = (e) => {
@@ -20,6 +20,11 @@ function ChatInput({channelName, channelId}) {
         user: 'Elaine San Luis',
         userImage: '',
     });
+
+    chatRef.current.scrollIntoView({
+        behavior: 'smooth',
+    });
+
     setInput('');
 };
   return (

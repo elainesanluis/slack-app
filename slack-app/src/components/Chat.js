@@ -31,7 +31,10 @@ function Chat () {
         });
     }, [roomId, loading]);
 
-    return <ChatContainer>
+    return ( 
+    <ChatContainer>
+        {roomDetails && roomMessages && (
+        <>
         <Header>
         <HeaderLeft>
             <h4><strong>#{roomDetails?.data().name}</strong></h4>
@@ -53,13 +56,17 @@ function Chat () {
                      user={user}
                      userImage={userImage}
                      />
-                     )
+                     );
             })}
             <ChatBottom ref={chatRef}/>
         </ChatMessages>
         
-        <ChatInput channelName={roomDetails?.data().name} channelId={roomId}></ChatInput>
-    </ChatContainer>;
+        <ChatInput chatRef={chatRef} channelName={roomDetails?.data().name} channelId={roomId}/>
+        </>
+        )}
+    </ChatContainer>
+    
+    );
 }
 
 export default Chat;
@@ -110,5 +117,7 @@ const HeaderRight = styled.div`
 
 const ChatMessages = styled.div``;
 
-const ChatBottom = styled.div``;
+const ChatBottom = styled.div`
+padding-bottom: 200px;
+`;
 
