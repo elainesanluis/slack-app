@@ -8,15 +8,18 @@ import SidebarOption from './SidebarOption';
 import InboxIcon from '@mui/icons-material/Inbox';
 import CommentIcon from '@mui/icons-material/Comment';
 import DraftsIcon from '@mui/icons-material/Drafts';
-import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ArrowDropDownRoundedIcon from '@mui/icons-material/ArrowDropDownRounded';
 import AddIcon from '@mui/icons-material/Add';
 import { useCollection } from 'react-firebase-hooks/firestore';
 import { db } from '../firebase';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../firebase';
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
 
 function Sidebar() {
   const [channels, loading, error] = useCollection(db.collection('rooms'));
+  const [user] = useAuthState(auth);
 
   return (
     <SidebarContainer>
@@ -44,12 +47,28 @@ function Sidebar() {
   )
     )}
 
+<UserProfile>    
+<AccountBoxIcon onClick={() => auth.signOut()} alt={user?.displayName} src={user?.photoURL}/>
+</UserProfile>
 
     </SidebarContainer>
   )
 }
 
 export default Sidebar;
+
+const UserProfile = styled.div`
+position: absolute;
+bottom: 50px;
+left: 20px;
+>.MuiSvgIcon-root {
+font-size: 100px;
+cursor: pointer;
+:hover {
+  opacity: 0.8;
+}
+}
+`;
 
 const SidebarContainer = styled.div`
   color: white;
