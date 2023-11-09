@@ -7,14 +7,14 @@ import styled from "styled-components";
 import Chat from './components/Chat';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from './firebase';
-import Login from './Login';
+import Login from './components/Login';
 
 function App() {
   const [user, loading] = useAuthState(auth);
   return (
     <div className="App">
       <Router>
-       {!user? (
+       {!user ? (
           <Login/>
         ): (
           <>
@@ -22,7 +22,9 @@ function App() {
           <Appbody>
             <Sidebar/>
             <Routes>
-             <Route path='/' exact element={<Chat></Chat>}></Route>
+             <Route path='/' exact>
+              <Chat/>
+             </Route>
           </Routes>
         </Appbody>
         </>
