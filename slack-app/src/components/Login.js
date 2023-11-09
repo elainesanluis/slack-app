@@ -1,10 +1,12 @@
 import React from 'react'
 import styled from 'styled-components';
 import { Button } from '@mui/material';
+import { auth, provider } from '../firebase';
 
 function Login() {
   const signIn = (e) => {
   e.preventDefault();
+  auth.signInWithPopup(provider).catch((error) => alert(error.message));
   };
   return (
     <LoginContainer>

@@ -23,7 +23,6 @@ function App() {
             <Sidebar/>
             <Routes>
              <Route path='/' exact>
-              <Chat/>
              </Route>
           </Routes>
         </Appbody>
