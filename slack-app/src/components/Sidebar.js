@@ -16,6 +16,7 @@ import { db } from '../firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../firebase';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import { Avatar } from '@mui/material';
 
 function Sidebar() {
   const [channels, loading, error] = useCollection(db.collection('rooms'));
@@ -48,7 +49,7 @@ function Sidebar() {
     )}
 
 <UserProfile>    
-<AccountBoxIcon onClick={() => auth.signOut()} alt={user?.displayName} src={user?.photoURL}/>
+<SidebarAvatar onClick={() => auth.signOut()} alt={user?.displayName} src={user?.photoURL}/>
 </UserProfile>
 
     </SidebarContainer>
@@ -61,12 +62,17 @@ const UserProfile = styled.div`
 position: absolute;
 bottom: 50px;
 left: 20px;
->.MuiSvgIcon-root {
-font-size: 100px;
+height: auto;
+width: auto;
+`;
+
+const SidebarAvatar = styled(Avatar)`
+width: 100px;
+height: 100px;
 cursor: pointer;
+color: inherit;
 :hover {
   opacity: 0.8;
-}
 }
 `;
 
