@@ -1,46 +1,30 @@
-import React from 'react';
-import ReactDOM from 'react-dom'; 
-import Header from './components/Header';
+import React from 'react'; 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import Sidebar from './components/Sidebar';
-import styled from "styled-components";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from './firebase';
 import Login from './components/Login';
 import { UserContextProvider } from './components/User';
+import Dashboard from './components/Dashboard';
+import SignUp from './components/SignUp';
 
 function App() {
   const [user, loading] = useAuthState(auth);
   return (
-    <div className="App">
       <UserContextProvider>
-      <Router>
-       {!user ? (
-          <Login/> 
-        ): (
-          <>
-        <Header/>
-          <Appbody>
-            <Sidebar/>
-            <Routes>
-             <Route path='/' exact>
-             </Route>
+        <div className="App">
+        <Router>
+          <Routes>
+            <Route path="/" element={<Login />} />
+			      <Route path="/signup" element={<SignUp />} />
+			      <Route path="/app" element={<Dashboard />} />  
           </Routes>
-        </Appbody>
-        </>
-        )
-      };
-      </Router>
+        </Router>
+        </div>
       </UserContextProvider>
-    </div>
   );
 }
 
 export default App;
 
-
-const Appbody = styled.div`
- display: flex;
- height: 100vh;
-`;
+ 

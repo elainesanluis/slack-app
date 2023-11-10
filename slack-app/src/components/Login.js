@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import styled from 'styled-components';
 import { Button } from '@mui/material';
 import { auth, provider } from '../firebase';
-import { Navigate } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import usePost from './usePost';
 import { UserContext } from './User';
 
@@ -56,7 +56,6 @@ function Login() {
             <img src='https://cdn.mos.cms.futurecdn.net/SDDw7CnuoUGax6x9mTo7dd.jpg' alt=''/>
             <h1>Sign in</h1>
             <p>avion.slack.com</p>
-
             <form onSubmit={handleSubmit}>
 					<div>
 						<input
@@ -81,11 +80,12 @@ function Login() {
 							<Errors key={index}>{message}</Errors>
 						))}
 					</div>
-					<button type="submit">Sign In</button>
+					<button id='loginID' type="submit">Sign In</button>
 				</form>
 
+		<Link to="/signup">Create an account</Link>	<br/>				
         <Button onClick={signIn}>
-          Sign in with Google
+        Sign in with Google
         </Button>
         </LoginInnerContainer>
     </LoginContainer>
@@ -97,7 +97,8 @@ export default Login;
 const LoginContainer = styled.div`
 background-color: #f8f8f8;
 height: 100vh;
-display: grid;
+display: flex;
+flex-direction: column;
 place-items: center;
 `;
 
@@ -121,6 +122,10 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   color: white;
 }
 
+>a {
+	text-decoration: none;
+	font-weight: 600;
+}
 `;
 
 const Errors = styled.p`
