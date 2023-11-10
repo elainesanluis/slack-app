@@ -15,7 +15,6 @@ import { useCollection } from 'react-firebase-hooks/firestore';
 import { db } from '../firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../firebase';
-import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import { Avatar } from '@mui/material';
 
 function Sidebar() {
@@ -27,10 +26,6 @@ function Sidebar() {
      <SidebarHeader>
         <SidebarInfo>
             <h2>Avion School</h2>
-            <h3>
-                <FiberManualRecordIcon/>
-                Elaine San Luis
-            </h3>
         </SidebarInfo>
         <KeyboardArrowDownIcon/>
         <FilterListIcon/>
@@ -49,7 +44,11 @@ function Sidebar() {
     )}
 
 <UserProfile>    
-<SidebarAvatar onClick={() => auth.signOut()} alt={user?.displayName} src={user?.photoURL}/>
+<SidebarAvatar onClick={() => auth.signOut()} alt={user?.displayName} src={user?.photoURL} variant='rounded'/>
+<h3>
+  <FiberManualRecordIcon/>
+  Elaine San Luis
+</h3>
 </UserProfile>
 
     </SidebarContainer>
@@ -63,13 +62,24 @@ position: absolute;
 bottom: 50px;
 left: 20px;
 height: auto;
-width: auto;
+>h3 {
+  display: flex;
+  font-size: 13px;
+  font-weight: 400;
+  align-items: center;
+}
+>h3 >.MuiSvgIcon-root {
+  font-size: 14px;
+  margin-top: 1px;
+  margin-right: 2px;
+  color: green;
+}
 `;
 
 const SidebarAvatar = styled(Avatar)`
-width: 100px;
-height: 100px;
+font-size: 100px;
 cursor: pointer;
+border: 3px solid white;
 color: inherit;
 :hover {
   opacity: 0.8;
@@ -107,20 +117,6 @@ flex: 1;
   font-size: 15px;
   font-weight: 900;
   margin-bottom: 5px;
-}
-
->h3 {
-  display: flex;
-  font-size: 13px;
-  font-weight: 400;
-  align-items: center;
-}
-
->h3 >.MuiSvgIcon-root {
-  font-size: 14px;
-  margin-top: 1px;
-  margin-right: 2px;
-  color: green;
 }
 `;
 
