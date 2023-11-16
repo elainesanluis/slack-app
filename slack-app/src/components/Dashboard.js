@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React from 'react'
 import styled from 'styled-components';
 import Header from './Header';
 import Sidebar from './Sidebar';
