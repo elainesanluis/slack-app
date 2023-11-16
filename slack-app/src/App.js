@@ -1,10 +1,10 @@
 import React from 'react'; 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import Login from './components/Login';
-import { UserContextProvider } from './components/User';
-import Dashboard from './components/Dashboard';
-import SignUp from './components/SignUp';
+import Login from './pages/Login';
+import { UserContextProvider } from './contexts/User';
+import Dashboard from './pages/Dashboard';
+import SignUp from './pages/SignUp';
 
 function App() {
   

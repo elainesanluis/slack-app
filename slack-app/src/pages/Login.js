@@ -2,14 +2,10 @@ import React, { useState, useEffect, useContext } from 'react'
 import styled from 'styled-components';
 import { Button } from '@mui/material';
 import { Link, Navigate } from 'react-router-dom';
-import usePost from './usePost';
-import { UserContext } from './User';
+import usePost from '../hooks/usePost';
+import { UserContext } from '../contexts/User';
 
 function Login() {
-  const signIn = (e) => {
-  e.preventDefault();
-  auth.signInWithPopup(provider).catch((error) => alert(error.message));
-  };
 
   const [userInfo, setUserInfo] = useState({
 		email: '',
