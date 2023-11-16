@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components';
 import Header from './Header';
 import Sidebar from './Sidebar';
-import Chat from './Chat';
 
 function Dashboard() {
   return (
@@ -10,7 +9,6 @@ function Dashboard() {
      <Header/>
       <Appbody>
        <Sidebar/>
-       <Chat/>
      </Appbody>
    </div>
   )

@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
 import styled from 'styled-components';
 import { Button } from '@mui/material';
-import { auth, provider } from '../firebase';
 import { Link, Navigate } from 'react-router-dom';
 import usePost from './usePost';
 import { UserContext } from './User';

@@ -11,15 +11,10 @@ import DraftsIcon from '@mui/icons-material/Drafts';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ArrowDropDownRoundedIcon from '@mui/icons-material/ArrowDropDownRounded';
 import AddIcon from '@mui/icons-material/Add';
-import { useCollection } from 'react-firebase-hooks/firestore';
-import { db } from '../firebase';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth } from '../firebase';
+
 import { Avatar } from '@mui/material';
 
 function Sidebar() {
-  const [channels, loading, error] = useCollection(db.collection('rooms'));
-  const [user] = useAuthState(auth);
 
   return (
     <SidebarContainer>
