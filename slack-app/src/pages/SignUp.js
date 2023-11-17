@@ -1,7 +1,6 @@
-import React from 'react'
+import React, { useEffect, useState} from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import usePost from '../hooks/usePost';
-import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 function SignUp() {

@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { UserContext } from '../../contexts/User';
 import { MessagesStyles, MessageLayout } from '../styles';
-import Message from '../Message';
+import Message from './Message';
 
 export default function SentMessages({ selectedUser, selectedChannel }) {
 	const [messagesData, setMessagesData] = useState([]);
