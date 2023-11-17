@@ -79,9 +79,7 @@ function Login() {
 				</form>
 
 		<Link to="/signup">Create an account</Link>	<br/>				
-        <Button onClick={signIn}>
-        Sign in with Google
-        </Button>
+    
         </LoginInnerContainer>
     </LoginContainer>
   );
