@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
 import styled from 'styled-components';
-import { Button } from '@mui/material';
 import { Link, Navigate } from 'react-router-dom';
 import usePost from '../hooks/usePost';
 import { UserContext } from '../contexts/User';
