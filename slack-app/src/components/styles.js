@@ -37,12 +37,12 @@ export const ModalStyles = styled.div`
 // TOPBAR
 export const TopBarLayout = styled.div`
 	height: 7vh;
-	background-color: #19171d;
+	background-color: #4A154B;
 	display: flex;
 	flex-direction: row-reverse;
 	align-items: center;
 	padding: 1rem;
-	color: #d1d2d3;
+	color: #ffffff;
 	svg {
 		&:hover {
 			cursor: pointer;
@@ -57,7 +57,7 @@ export const Avatar = styled.div`
 
 // SIDEBAR
 export const SidebarStyles = styled.div`
-	background-color: #19171d;
+	background-color: #4A154B;
 	height: 93vh;
 	flex: 1;
 	h2 {
@@ -144,7 +144,7 @@ export const Plus = styled.li`
 
 // MESSAGES
 export const MessageContainer = styled.div`
-	background-color: #212121;
+	background-color: #4A154B;
 	height: 93vh;
 	flex: 4;
 `;
