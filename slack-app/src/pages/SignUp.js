@@ -1,10 +1,10 @@
-import React, { useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { Errors, FormContainer, FormLayout } from '../components/styles';
 import usePost from '../hooks/usePost';
-import styled from 'styled-components';
 
-function SignUp() {
-  const [userInfo, setUserInfo] = useState({
+export default function Signup() {
+	const [userInfo, setUserInfo] = useState({
 		email: '',
 		password: '',
 		password_confirmation: '',
@@ -31,11 +31,10 @@ function SignUp() {
 		setErrorMessage(errors.full_messages);
 	}, [res, errors, navigate]);
 
-  return (
-    <SignUpContainer>
-    <SignUpInnerContainer>
-    <img src='https://cdn.mos.cms.futurecdn.net/SDDw7CnuoUGax6x9mTo7dd.jpg' alt=''/>
-    <h1>Sign Up</h1>
+	return (
+		<FormLayout>
+			<FormContainer>
+				<h1>Sign Up</h1>
 				<p>
 					Create an account using your <span>email</span>
 				</p>
@@ -79,35 +78,7 @@ function SignUp() {
 					<button type="submit">Sign Up</button>
 				</form>
 				<Link to="/">Already have an account? Login</Link>
-        </SignUpInnerContainer>
-        </SignUpContainer>
-  );
+			</FormContainer>
+		</FormLayout>
+	);
 }
-
-export default SignUp;
-
-const SignUpContainer = styled.div`
-background-color: #f8f8f8;
-height: 100vh;
-display: flex;
-flex-direction: column;
-place-items: center;
-`;
-
-const SignUpInnerContainer = styled.div`
-padding: 100px;
-text-align: center;
-background-color: white;
-border-radius: 10px;
-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-
->img {
-  object-fit: contain;
-  height: 100px;
-  margin-bottom: 40px;
-}
-`;
-
-const Errors = styled.p`
-	color: red;
-`;

@@ -1,28 +1,26 @@
-import React from 'react'; 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
-import Login from './pages/Login';
-import { UserContextProvider } from './contexts/User';
+import { Layout } from './components/styles';
 import Dashboard from './pages/Dashboard';
-import SignUp from './pages/SignUp';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import { UserContextProvider } from './contexts/User';
 
 function App() {
-  
-  return (
-      <UserContextProvider>
-        <div className="App">
-        <Router>
-          <Routes>
-            <Route path="/" element={<Login />} />
-			      <Route path="/signup" element={<SignUp />} />
-			      <Route path="/app" element={<Dashboard />} />  
-          </Routes>
-        </Router>
-        </div>
-      </UserContextProvider>
-  );
+	return (
+		<UserContextProvider>
+			<div className="App">
+				<Layout>
+					<Routes>
+						<Route path="/" element={<Login />} />
+						<Route path="signup" element={<Signup />} />
+						<Route path="app/*" element={<Dashboard />} />
+					</Routes>
+				</Layout>
+			</div>
+		</UserContextProvider>
+	);
 }
 
 export default App;
-
- 

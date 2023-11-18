@@ -1,6 +1,7 @@
 import React from 'react';
 import { SidebarStyles, GroupName } from '../styles';
 import { BsPencilSquare } from 'react-icons/bs';
+
 import Channels from './Channels';
 import DMs from './DMs';
 
